@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>Royal Palm Holidays</title>
+        <link href="/images/logo.png" rel="icon" type="image/png">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="/indexdesign/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="/indexdesign/css/style.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper" style="background-image: url('/indexdesign/images/bg-registration-form-2.jpg');">
+			<div class="inner">
+				<form action="/enquiry-submit" method="post" >
+					<h3><%=msg%></h3>
+
+					
+						<div class="form-wrapper">
+							<label for="" style="font-weight: bold;font-size: 16px;">Full Name * </label>
+							<input type="text" name="name" class="form-control">
+						</div>
+					
+					
+					<div class="form-wrapper">
+						<label for="" style="font-weight: bold;font-size: 16px;">Mobile Number *</label>
+						<input type="text" name="number" class="form-control">
+					</div>
+					<div class="form-wrapper">
+						<label for="" style="font-weight: bold;font-size: 16px;">Designation *</label>
+						<input type="text" name="designation" class="form-control">
+					</div>
+					<div class="form-wrapper">
+						<label for="" style="font-weight: bold;font-size: 16px;">Nationality *</label>
+						<input type="text" name="nationality" class="form-control">
+					</div>
+                    <div class="form-wrapper">
+						<label for="" style="font-weight: bold;font-size: 16px;">City of Residence *</label>
+						<select name="city" class="form-control">
+                            <option value="Dubai">Dubai </option>
+                            <option value="Sharjah">Sharjah </option>
+							<option value="Ajman">Ajman </option>
+							<option value="Abu dhabi">Abu dhabi</option>
+							<option value="Ras al khaimah">Ras al khaimah</option>
+							<option value="Fujairah">Fujairah</option>
+							<option value="Other">Other</option>
+
+
+                        </select>
+					</div>
+                    	<div class="form-wrapper">
+						<label for="" style="font-weight: bold;font-size: 16px;">Martial Status *</label>
+						<!-- <input type="text" name="nationality" class="form-control"> -->
+                        <select name="status" class="form-control">
+                            <option value="married">Married</option>
+                            <option value="Unmarried">UnMarried</option>
+
+                        </select>
+					</div>
+					
+					<button>Submit Now</button>
+				</form>
+			</div>
+		</div>
+		
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

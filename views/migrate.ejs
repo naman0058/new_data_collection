@@ -1,0 +1,114 @@
+<%- include ('./header.ejs') %>
+
+
+<a id='qodef-back-to-top' href='#'>
+    <span class="qodef-btt-text">TOP</span>
+    </a>
+    <div class="qodef-content">
+    <div class="qodef-content-inner">
+    <div class="qodef-title-holder qodef-centered-type qodef-title-va-header-bottom qodef-preload-background qodef-has-bg-image qodef-bg-parallax" style="height: 400px;background-color: #f8f8f8;background-image:url(/images/night.jpg);" data-height="400">
+    <div class="qodef-title-image">
+    <img itemprop="image" src="/design/wp-content/uploads/2018/09/elements-title-img-1.jpg" alt="d" />
+    </div>
+    <div class="qodef-title-wrapper" style="height: 400px">
+    <div class="qodef-title-inner">
+    <div class="qodef-grid">
+    <h1 class="qodef-page-title entry-title">Tour List</h1>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="qodef-full-width">
+    <div class="qodef-full-width-inner">
+    <div class="qodef-grid-row">
+    <div class="qodef-page-content-holder qodef-grid-col-12">
+    <div class="qodef-row-grid-section-wrapper " style="margin-top: 60px;"><div class="qodef-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1539600834646"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="qodef-tours-list-holder qodef-tours-row qodef-normal-space  qodef-info-skin-light qodef-tours-columns-3 qodef-tours-type-standard">
+    <div class="qodef-tours-list-pagination-data">
+    <input type="hidden" name="number" value="3">
+    <input type="hidden" name="order_by" value="date">
+    <input type="hidden" name="order" value="DESC">
+    <input type="hidden" name="tour_category" value="skiing">
+    <input type="hidden" name="destination" value="">
+    <input type="hidden" name="thumb_size" value="full">
+    <input type="hidden" name="next_page" value="2">
+    <input type="hidden" name="tour_type" value="standard">
+    <input type="hidden" name="image_size" value="full">
+    <input type="hidden" name="title_tag" value="h4">
+    <input type="hidden" name="text_length" value="11">
+    </div>
+    <div class="qodef-tours-list-holder-inner qodef-tours-row-inner-holder qodef-outer-space">
+    <div class="qodef-tours-list-grid-sizer"></div>
+    
+
+    <% let j = 0 %>
+    <% for(i=0;i<result[0].length;i++) { %>
+
+     
+    
+    <div class="qodef-tours-standard-item qodef-tours-row-item qodef-item-space post-3325 tour-item type-tour-item status-publish has-post-thumbnail hentry tour-category-skiing tour-attribute-5-star-accommodation tour-attribute-airport-transfer-2 tour-attribute-breakfast tour-attribute-personal-guide">
+    <div class="qodef-tour-standard-item-holder">
+    <div class="qodef-tour-standard-item-holder-inner">
+    <div class="qodef-tours-standard-item-image-holder">
+    <a href="#">
+    <img style="width: 413px;height:275px;object-fit: cover;" src="/images/<%=result[0][i].logo%>" class="attachment-full size-full" alt="f" loading="lazy" /> </a>
+    </div>
+    <div class="qodef-tours-standard-item-content-holder">
+    
+    <div class="qodef-tours-standard-item-content-inner">
+    <div class="qodef-tours-standard-item-title-holder">
+    <h4 class="qodef-tour-title">
+    <a href="#"><%=result[0][i].name%></a>
+    </h4>
+    </div>
+    <div class="qodef-tours-standard-item-excerpt">
+
+  
+<%
+
+const filteredData = result[1].filter(item => item.countryid == result[0][j].id);
+
+console.log('ff',result[0][0].id)
+
+%>
+
+
+
+
+<% for(k=0;k<filteredData.length;k++) { %>
+    <a href="/immigration/<%=result[0][i].name%>/<%=filteredData[k].name%>">* <%=filteredData[k].name%></a><br>
+  <% } %>
+
+    </div>
+   
+    </div>
+    </div>
+    </div>
+    </div>
+    </div> 
+<% j= j+1 %>
+    <% } %>
+
+
+   
+ 
+ </div>
+  
+    
+  
+    </div></div></div></div></div>
+    </div>
+    </div>
+
+
+
+  
+        </div>
+        </div>
+    </div>
+    </div>
+    </div> 
+    </div>
+    
+    
+    
+    <%- include ('./footer.ejs') %>

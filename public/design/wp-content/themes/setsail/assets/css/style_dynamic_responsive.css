@@ -1,0 +1,11 @@
+@media only screen and (max-width: 1024px){
+.qodef-content .qodef-content-inner > .qodef-container > .qodef-container-inner, .qodef-content .qodef-content-inner > .qodef-full-width > .qodef-full-width-inner { padding: 50px 30px 45px;}}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+}
+
+@media only screen and (min-width: 681px) and (max-width: 768px){
+h1 { font-size: 58px;}}
+
+@media only screen and (max-width: 680px){
+h1 { font-size: 35px;}h2 { font-size: 28px;}h3 { font-size: 25px;}}

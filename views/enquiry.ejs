@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Royal Palm Holidays | Admin Pannel</title>
+    <!-- Favicon -->
+    <link href="/images/logo.png" rel="icon" type="image/png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="/admin/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+    <link href="/admin/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- Argon CSS -->
+    <link type="text/css" href="/admin/assets/css/argon.css?v=1.0.0" rel="stylesheet">
+  </head>
+
+<body>
+  <!-- Sidenav -->
+  
+    <!-- Main content -->
+    <div class="main-content">
+      <!-- Top navbar -->
+      <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+        <div class="container-fluid">
+          <!-- Brand -->
+          <!-- Form -->
+         
+          <!-- User -->
+     
+        </div>
+      </nav>
+      <!-- Header -->
+      <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 00px; background-image: url(/admin/assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+        <!-- Mask -->
+        <span class="mask bg-gradient-default opacity-8"></span>
+        <!-- Header container -->
+        <div class="container">
+      <div class="row text-center">
+        <div class="col-lg-8">
+          <h1 style="color: white;align-items: center;text-align: center;font-size: 64px;margin-top: 40px;" class="text-center" >ROYAL PALM HOLIDAYS</h1>
+
+        </div>
+        <div class="col-lg-4">
+          <img src="/images/logonew.png" style="width: 180px;">
+        </div>
+
+      </div>
+    </div>
+      </div>
+      <!-- Page content -->
+<!-- Form -->
+
+
+<!--InsertDiv-->
+
+
+  <div class="container-fluid mt--7">
+      <div id="insertdiv">
+    <div class="row">
+      <div class="col-xl-12 order-xl-1">
+        <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  
+  
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+
+<% if(eventname!=''){ %>
+                 
+   <h2 style="color: black;">Event Name - <%=eventname%>
+
+   <% } %>
+   <span style="color: black;float: right;" class="text-right">Serial No. RPH-<%=result[0][0].counter%></span>
+  </h2>
+                    
+                     
+                      </div>
+                     
+                      
+                                  
+                                     
+              
+                    </div>
+              </div>
+              
+          <div class="card-body">
+            
+
+            
+              <div class="pl-lg-4">
+
+               
+                </div>
+             
+
+<% if(eventname==''){ %>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="form-group">
+        <label class="form-control-label" for="input-username">Full Name *</label>
+     <select id="event_id" name="event_id" class="form-control"></select>
+
+      </div>
+    </div>
+
+ 
+  </div>
+<% } %>
+
+  
+
+            
+
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-username">Full Name *</label>
+                          <input type="text" id="name" name="name" class="form-control form-control-alternative"
+                            placeholder="Name">
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-email">Mobile Number *</label>
+                          <input type="text" maxlength="10" minlength="10" onkeypress="return onlyNumberKey(event)" id="number" name="number" class="form-control form-control-alternative"
+                            placeholder="Mobile Number">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Email *</label>
+                            <input type="text" id="email" name="password" class="form-control form-control-alternative"
+                              placeholder="Email">
+                          </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-email">Designation * </label>
+                            <input type="text" id="designation" name="address" class="form-control form-control-alternative"
+                              placeholder="Address">
+                          </div>
+                        </div>
+                      </div>
+
+					  <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Nationality *</label>
+							<select id="nationality" class="form-control">
+								<option value="India">India </option>
+								<option value="Pakistan">Pakistan </option>
+								<option value="Nepal">Nepal </option>
+								<option value="Bangladesh">Bangladesh</option>
+								<option value="Sri Lanka">Sri Lanka</option>
+								
+			
+							</select>
+                          </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-email">Residence of city * </label>
+							<select id="city" class="form-control">
+								<option value="Dubai">Dubai </option>
+								<option value="Sharjah">Sharjah </option>
+								<option value="Ajman">Ajman </option>
+								<option value="Abu dhabi">Abu dhabi</option>
+								<option value="Ras al khaimah">Ras al khaimah</option>
+								<option value="Fujairah">Fujairah</option>
+								<option value="Other">Other</option>
+			
+			
+							</select>
+                          </div>
+                        </div>
+
+
+						<div class="col-lg-4">
+							<div class="form-group">
+							  <label class="form-control-label" for="input-email">Martial Status * </label>
+							  <select id="status" class="form-control">
+								<option value="Married">Married </option>
+								<option value="Unmarried">Unmarried </option>
+							
+			
+			
+							</select>
+							</div>
+						  </div>
+
+
+                      </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <button type="button" class="btn btn-info submit">Save</button>
+                    </div>
+                  </div>
+                </div>
+           </div>
+        </div>
+      </div>
+    </div>
+ </div>
+</div>
+
+<!--End InsertDiv-->
+
+<div id="result"></div>
+<!--EditDiv-->
+
+
+
+      </div>
+  
+  
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+          <div class="col-xl-6">
+            
+          </div>
+        
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="/admin/assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="/admin/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Argon JS -->
+  <script src="/admin/assets/js/argon.js?v=1.0.0"></script>
+ 
+
+
+
+  <script>
+	$('.submit').click(function(){
+
+if( $('#name').val() == '' || $('#name').val() == [] ) alert('Enter Name')
+else if( $('#number').val() == '' || $('#number').val() == [] ) alert('Enter Number')
+else if($('#number').val().length!=10) alert('Enter Valid Mobile Number')
+
+else if( $('#email').val() == '' || $('#email').val() == [] ) alert('Enter Email')
+else if( $('#designation').val() == '' || $('#designation').val() == [] ) alert('Enter Deisgnation')
+else if( $('#nationality').val() == '' || $('#nationality').val() == [] ) alert('Select Nationality')
+else if( $('#city').val() == '' || $('#city').val() == [] ) alert('Select City')
+else if( $('#status').val() == '' || $('#status').val() == [] ) alert('Select Martial Status')
+else {
+
+let name = $('#name').val()
+let number = $('#number').val()
+let email = $('#email').val()
+let designation = $('#designation').val()
+let nationality = $('#nationality').val()
+let city = $('#city').val()
+let status = $('#status').val()
+let eventid = $('#event_id').val()
+
+$.post('/enquiry-submit',{name,number,email,designation,nationality,city,status,eventid},data=>{
+  console.log(data.msg)
+  alert(data.msg);
+  if(data.msg=='Successfully Submitted')
+  window.location.reload();
+
+ })
+
+}
+
+
+	})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  $.getJSON(`/event/show`, data => {
+    console.log(data)
+    student = data
+    fillDropDown('event_id', data, 'Choose Event', 0)
+
+  
+})
+
+  function fillDropDown(id, data, label, selectedid = 0) {
+    $(`#${id}`).empty()
+    $(`#${id}`).append($('<option>').val("null").text(label))
+
+    $.each(data, (i, item) => {
+        if (item.id == selectedid) {
+            $(`#${id}`).append($('<option selected>').val(item.id).text(item.name))
+        } else {
+            $(`#${id}`).append($('<option>').val(item.id).text(item.name))
+        }
+    })
+}
+
+
+function onlyNumberKey(evt) { 
+      
+      // Only ASCII charactar in that range allowed 
+      var ASCIICode = (evt.which) ? evt.which : evt.keyCode 
+      if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) 
+          return false; 
+      return true; 
+} 
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<%- include ('./header.ejs') %>
+<style>
+  .deals li{
+  background:#f7f5f3;
+    height: 82px;
+    margin: 0 15px 5px;
+    padding: 18px 20px;
+    width: 258px;
+    opacity: 1!important;
+    float:left;
+  }
+  .deals li h3{
+    color: #343332;
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 400;
+    height: 45px;
+    line-height: 20px;
+    margin-top: -3px;
+    width: 155px;
+  }
+  .imgs{
+    height: 54px;
+    border-radius: 51px;
+  }
+  .ul{
+    list-style-type: none;
+}
+  
+</style>
+
+<a id='qodef-back-to-top' href='#'>
+  <span class="qodef-btt-text">TOP</span>
+  </a>
+  <div class="qodef-content">
+  <div class="qodef-content-inner">
+  <div class="qodef-title-holder qodef-centered-type qodef-title-va-header-bottom qodef-preload-background qodef-has-bg-image qodef-bg-parallax" style="height: 520px;background-color: #f8f8f8;background-image:url(/images/dubai1.jpg);" data-height="520">
+  <div class="qodef-title-image">
+  <img itemprop="image" src="/images/dubai1.jpg" alt="d" />
+  </div>
+  <div class="qodef-title-wrapper" style="height: 520px">
+  <div class="qodef-title-inner">
+  <div class="qodef-grid">
+  <span class="qodef-page-subtitle">Destinations</span>
+  <h1 class="qodef-page-title entry-title">VISA</h1>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div id="content" class="" data-destroyed-effects="transition resolved appearFromTop ">
+				
+				
+
+
+    <div id="homePanel"><div class="deals">
+      
+      
+      <h1 class="hidden" style="padding: 10px;margin:10px">
+       Top visas</h1>
+      <!-- 2015.3.930.40 -->
+        <ul class="ul">
+         
+
+          <% for(i=0;i<result.length;i++) { %>
+<a href="/get/visa/<%=result[i].name%>">
+        <li style="margin:20px;background-color: #172437;color: white;">
+         <div>
+          <img class="imgs" alt="UAE Tourist Visa" src="/images/<%=result[i].logo%>" class="lazy-loaded">
+         </div>
+         <h3>
+          <a style="color: white;" id="ctl00_ContentPlaceHolder1_C001_masterBlogPostsFrontend_ctl00_ctl00_Repeater_ctrl0_lnkTitle" title="UAE Tourist Visa" href="/get/visa/<%=result[i].name%>" tabindex="1"><%=result[i].name%></a></h3>
+         <span><em>From Aed</em> <%=result[i].service_charge%></span>
+        </li>
+</a>
+        <% } %>
+     
+        </ul>
+       <input id="ctl00_ContentPlaceHolder1_C001_masterBlogPostsFrontend_ctl00_ctl00_Repeater_ClientState" name="ctl00_ContentPlaceHolder1_C001_masterBlogPostsFrontend_ctl00_ctl00_Repeater_ClientState" type="hidden" tabindex="1"><span id="ctl00_ContentPlaceHolder1_C001_masterBlogPostsFrontend_ctl00_ctl00_Repeater" style="display:none;"></span>
+      
+     </div></div>
+    <span></span>
+          </div>
+  
+   
+  <%- include ('./footer.ejs') %>

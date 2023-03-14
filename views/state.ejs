@@ -1,0 +1,236 @@
+<%- include ('./adminheader.ejs') %>
+
+
+<!--InsertDiv-->
+
+
+  <div class="container-fluid mt--7">
+      <div id="insertdiv">
+    <div class="row">
+      <div class="col-xl-12 order-xl-1">
+        <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  <div class="col-8">
+                    <h3 class="mb-0">Add State</h3>
+                  </div>
+                  <div class="col-4 text-right">
+                    <button type="button" id="show" class="btn btn-sm btn-primary">Show</button>
+                  </div>
+                </div>
+              </div>
+              
+          <div class="card-body">
+            <form action="/state/insert" method="post" enctype="multipart/form-data" class="uploadImage">
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-username">Country Name</label>
+                      <select name="countryid" id="leagueid" class="form-control form-control-alternative">
+                       </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-email">State Name</label>
+                      <input type="text" id="input-username" name="name" class="form-control form-control-alternative"
+                      placeholder="State Name">
+                    </div>
+                  </div>
+                </div>
+
+                    <div class="row">
+                   
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-email">Logo</label>
+                          <input type="file" id="input-email" name="logo" class="form-control form-control-alternative">
+                        </div>
+                      </div>
+                    </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-info">Save</button>
+                    </div>
+                  </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+ </div>
+</div>
+
+<!--End InsertDiv-->
+
+<div id="result"></div>
+<!--EditDiv-->
+
+
+    <div id="editdiv">
+  <div class="row">
+    <div class="col-xl-12 order-xl-1">
+      <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Edit state</h3>
+                </div>
+                <div class="col-4 text-right">
+                  <button type="button" id="back1" class="btn btn-sm btn-primary">Back</button>
+                </div>
+              </div>
+            </div>
+            
+        <div class="card-body">
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username">ID</label>
+                    <input type="text" id="pid"  class="form-control form-control-alternative"
+                      placeholder="Class Name" readonly>
+                  </div>
+                </div>
+                
+              </div>
+
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username">League Name</label>
+                    <select id="pleagueid" name="pleagueid" class="form-control form-control-alternative"></select>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-email">League Name</label>
+                    <input type="text" id="pname" name="name" class="form-control form-control-alternative"
+                    placeholder="Student Name">
+                  </div>
+                </div>
+              </div>
+
+
+              
+         
+        
+
+
+          
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <button type="submit" id="update" class="btn btn-info">Update Data</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+
+<!--Ends EditDiv-->
+
+<!--UpdateImageDiv Start-->
+<div id="updateimagediv">
+    <div class="row">
+      <div class="col-xl-12 order-xl-1">
+        <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  <div class="col-8">
+                    <h3 class="mb-0">Update Team Logo</h3>
+                  </div>
+                  <div class="col-4 text-right">
+                    <button type="button" id="back2" class="btn btn-sm btn-primary">Back</button>
+                  </div>
+                </div>
+              </div>
+              
+          <div class="card-body">
+            <form action="/state/update_image" method="post" enctype="multipart/form-data">
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-username"> ID</label>
+                      <input type="text" name="id" id="peid"  class="form-control form-control-alternative"
+                        placeholder="ID" readonly>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-email">Image</label>
+                      <input type="file" name="logo"  class="form-control form-control-alternative">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <button type="submit" id="update" class="btn btn-info">Update Image</button>
+                    </div>
+                  </div>
+                </div>
+                </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      </div>
+  
+  
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+          <div class="col-xl-6">
+            
+          </div>
+        
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="/admin/assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="/admin/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Argon JS -->
+  <script src="/admin/assets/js/argon.js?v=1.0.0"></script>
+  
+  <script type="text/javascript" src="/javascripts/state.js"></script>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+<script>
+$('.uploadImage').submit(function(e){
+    e.preventDefault();
+     $(this).ajaxSubmit({
+      contentType: 'application/json',
+      success: function(response){
+     alert("Successfully")
+    
+      
+      }
+  });
+    return false;
+});
+</script>
+
+
+
+
+</body>
+
+</html>
