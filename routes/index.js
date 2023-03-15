@@ -519,7 +519,6 @@ router.get('/report',(req,res)=>{
   }
   else{
     res.render('admin-login',{msg:'Invalid Credentials'})
-
   }
 })
 
