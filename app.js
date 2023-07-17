@@ -17,6 +17,12 @@ var immigration_country = require('./routes/immigration_country');
 var immigration_subcategory = require('./routes/immigration_subcategory');
 var immigration_content = require('./routes/immigration_content');
 var banner_image = require('./routes/banner_image');
+var bunsiness_development_manager = require('./routes/Business_Development_CRM/BDM/index');
+var bunsiness_development_assistant = require('./routes/Business_Development_CRM/BDA/index');
+var bunsiness_development_team = require('./routes/Business_Development_CRM/BDT/index');
+var event = require('./routes/Business_Development_CRM/BDA/event');
+
+
 
 // var about = require('./routes/about');
 
@@ -53,6 +59,13 @@ app.use('/immigration_country',immigration_country)
 app.use('/immigration_subcategory',immigration_subcategory);
 app.use('/immigration_content',immigration_content);
 app.use('/banner_image',banner_image);
+app.use('/business-development-manager',bunsiness_development_manager);
+app.use('/business-development-assistant',bunsiness_development_assistant);
+app.use('/business-development-team',bunsiness_development_team);
+app.use('/event',event);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

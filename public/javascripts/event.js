@@ -72,7 +72,7 @@ function makeTable(board){
             <thead class="thead-dark">
               <tr>
                 <th scope="col">S. No.</th>
-=               <th scope="col">Name</th>
+           <th scope="col">Name</th>
                 <th scope="col">Place Name</th>
               
 
@@ -96,7 +96,7 @@ function makeTable(board){
                     <th scope="row">
                       <div class="media align-items-center">
                         <div class="media-body">
-                        <a href='/event-enquiry?id=${item.id}'>  <span class="mb-0 text-sm">${item.name}</span> </a>
+                       <span class="mb-0 text-sm">${item.name}</span> 
                         </div>
                       </div>
                     </th>

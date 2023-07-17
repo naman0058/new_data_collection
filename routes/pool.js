@@ -10,6 +10,7 @@ const pool = mysql.createPool({
     database: 'data_collection',
     port:'25060' ,
     multipleStatements: true
+    
 
   })
 

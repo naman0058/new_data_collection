@@ -308,7 +308,7 @@ router.get('/all-enquiry',(req,res)=>{
       if(req.session.propertyadmin){
         pool.query(`select e.* , 
   (select p.name from partner p where p.id = e.vendorid) as partnername,
-  (select a.name from admin a where a.id = e.adminid) as adminname,
+  (select a.name from bda a where a.id = e.adminid) as adminname,
   (select e.name from event e where e.id = e.eventid) as eventname
   
   from enquiry e where e.adminid  = '${req.session.propertyadmin}' order by id desc`,(err,result)=>{
@@ -433,82 +433,6 @@ router.get('/enquiry',(req,res)=>{
 
 
 
-router.post('/enquiry-submit',(req,res)=>{
-  let body = req.body;
-  var today = new Date();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
-
-today = yyyy + '-' + mm + '-' + dd;
-
-
-  body['date'] = today;
-  body['time'] = time;
-  body['vendorid'] = req.session.partner;
-
-
-console.log(req.body)
-
-pool.query(`select * from enquiry where number = '${req.body.number}'`,(err,result)=>{
-  if(err) throw err;
-  else if(result[0]){
-    res.json({msg:'Mobile Number Already Exists'})
-  }
-  else{
-   pool.query(`select * from enquiry where email = '${req.body.email}'`,(err,result)=>{
-     if(err) throw err;
-     else if(result[0]){
-      res.json({msg:'Email ID Already Exists'})
-     }
-     else {
-    pool.query(`select * from enquiry where vendorid = '${req.session.partner}' and date = CURDATE() limit 1`,(err,result)=>{
-   if(err) throw err;
-   else if(result[0]){
-
-     body['eventid'] = result[0].eventid
-
-
-pool.query(`select * from partner where id = '${req.session.partner}'`,(err,result)=>{
-  if(err) throw err;
-  else {
-    body['adminid']= result[0].adminid
-    pool.query(`insert into enquiry set ?`,body,(err,result)=>{
-      if(err) throw err;
-      else res.json({msg:'Successfully Submitted'})
-      // else res.send('enquiry')
-    })
-  }
-})
-
-    
-   }
-   else{
-    pool.query(`select * from partner where id = '${req.session.partner}'`,(err,result)=>{
-      if(err) throw err;
-      else {
-        body['adminid']= result[0].adminid
-        pool.query(`insert into enquiry set ?`,body,(err,result)=>{
-          if(err) throw err;
-          else res.json({msg:'Successfully Submitted'})
-          // else res.send('enquiry')
-        })
-      }
-    })
-    
-   }
-
-    })
-    
-     }
-   })
-  }
-})
-
- 
-})
 
 
 
@@ -539,44 +463,6 @@ router.post('/show-reports',(req,res)=>{
 
 
 
-router.post('/event/insert',(req,res)=>{
-	let body = req.body
-	console.log(req.body)
-  body['adminid'] = req.session.propertyadmin
-
-	pool.query(`insert into event set ?`,body,(err,result)=>{
-		if(err) throw err;
-		else res.json({
-			status:200
-		})
-	})
-})
-
-
-
-router.get('/event/show',(req,res)=>{
-	pool.query(`select * from event where adminid = '${req.session.propertyadmin}'`,(err,result)=>{
-		err ? console.log(err) : res.json(result)
-	})
-})
-
-
-
-router.get('/event/delete', (req, res) => {
-    const { id } = req.query
-    pool.query(`delete from event where id = ${id}`, (err, result) => {
-        if(err) throw err;
-        else res.json(result);
-    })
-})
-
-router.post('/event/update', (req, res) => {
-    console.log(req.body)
-    pool.query(`update event set ? where id = ?`, [req.body, req.body.id], (err, result) => {
-        if(err) throw err;
-        else res.json(result);
-    })
-})
 
 
 
@@ -855,7 +741,7 @@ router.get('/master-dashboard',(req,res)=>{
 
 
 router.get('/all-subadmin',(req,res)=>{
-  pool.query(`select * from admin`,(err,result)=>{
+  pool.query(`select * from bda`,(err,result)=>{
     if(err) throw err;
     else {
      
