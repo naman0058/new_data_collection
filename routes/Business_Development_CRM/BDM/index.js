@@ -31,8 +31,18 @@ router.get('/login',(req,res)=>{
       var query1 = `select count(id) as counter from bdt;`
       var query2 = `select count(id) as counter from enquiry;`
       var query3 = `select count(id) as counter from enquiry where date = CURDATE();`
+      var query4 = `select count(id) as counter from tellecaller_assistant;`
+      var query5 = `select count(id) as counter from telecallers;`
+      var query6 = `select count(id) as counter from calling where status = 'active';`
+      var query7 = `select count(id) as counter from calling where status = 'pending';`
+      var query8 = `select count(id) as counter from calling where status = 'hold';`
+      var query9 = `select count(id) as counter from calling where status = 'stuck';`
+      var query10 = `select count(id) as counter from calling where status = 'closed';`
+      var query11 = `select count(id) as counter from enquiry where assign = 'no';`
+
+
   
-      pool.query(query+query1+query2+query3,(err,result)=>{
+      pool.query(query+query1+query2+query3+query4+query5+query6+query7+query8+query9+query10+query11,(err,result)=>{
         if(err) throw err;
         else res.render(`${folder}/dashboard`,{result})
       })
@@ -156,6 +166,89 @@ router.get('/login',(req,res)=>{
   router.get('/logout',(req,res)=>{
     req.session.bdm = null;
     res.redirect(`/business-development-manager/login`)
+  })
+
+
+
+
+  router.get('/add-ta',(req,res)=>{
+    if(req.session.bdm){
+      res.render(`${folder}/TA`)
+  
+    }
+    else{
+      res.render(`${folder}/login`,{msg:'Invalid Credentials'})
+    }
+  })
+  
+
+  router.get('/all-ta',(req,res)=>{
+    pool.query(`select * from tellecaller_assistant`,(err,result)=>{
+      if(err) throw err;
+      else {
+      res.render(`${folder}/show-TA`,{result})
+       
+  
+  
+      }
+    })
+  })
+
+
+
+
+  router.get('/ta/details',(req,res)=>{
+    if(req.session.bdm){
+      var query1 = `select count(id) as counter from telecallers where taid = '${req.query.id}';`
+      var query2 = `select count(id) as counter from calling where taid = '${req.query.id}';`
+      var query3 = `select count(id) as counter from calling where taid = '${req.query.id}' and date = CURDATE();`
+      var query4 = `select t.* , (select count(id) from calling e where e.telecallers_id = t.id) as counter from telecallers t where taid = '${req.query.id}';`
+      var query6 = `select count(id) as counter from calling where status = 'active' and taid = '${req.query.id}';`
+      var query7 = `select count(id) as counter from calling where status = 'pending' and taid = '${req.query.id}';`
+      var query8 = `select count(id) as counter from calling where status = 'hold' and taid = '${req.query.id}';`
+      var query9 = `select count(id) as counter from calling where status = 'stuck' and taid = '${req.query.id}';`
+      var query10 = `select count(id) as counter from calling where status = 'closed' and taid = '${req.query.id}';`
+      pool.query(query1+query2+query3+query4+query6+query7+query8+query9+query10,(err,result)=>{
+        if(err) throw err;
+        else res.render(`${folder}/TADetails`,{result})
+      })
+    }
+    else{
+      res.render(`${folder}/login`,{msg:'Invalid Credentials'})
+
+  
+    }
+    
+  })
+
+
+
+
+
+  router.get('/telecaller/details',(req,res)=>{
+    if(req.session.bdm){
+      var query1 = `select count(id) as counter from calling where telecallers_id = '${req.query.id}';`
+      var query6 = `select count(id) as counter from calling where status = 'active' and telecallers_id = '${req.query.id}';`
+      var query7 = `select count(id) as counter from calling where status = 'pending' and telecallers_id = '${req.query.id}';`
+      var query8 = `select count(id) as counter from calling where status = 'hold' and telecallers_id = '${req.query.id}';`
+      var query9 = `select count(id) as counter from calling where status = 'stuck' and telecallers_id = '${req.query.id}';`
+      var query10 = `select count(id) as counter from calling where status = 'closed' and telecallers_id = '${req.query.id}';`
+      var query11 = `select c.*, 
+      (select e.name from enquiry e where e.id = c.enquiryid) as enquiryname,
+      (select e.number from enquiry e where e.id = c.enquiryid) as enquirynumber,
+      (select e.nationality from enquiry e where e.id = c.enquiryid) as enquirynationality
+       from calling c where c.telecallers_id = '${req.query.id}' order by id desc limit 20;`
+      pool.query(query1+query6+query7+query8+query9+query10+query11,(err,result)=>{
+        if(err) throw err;
+        else res.render(`${folder}/TeleCallerDetails`,{result})
+      })
+    }
+    else{
+      res.render(`${folder}/login`,{msg:'Invalid Credentials'})
+
+  
+    }
+    
   })
 
 module.exports = router;

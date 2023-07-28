@@ -764,6 +764,8 @@ router.get('/all-subadmin',(req,res)=>{
 
 
 
+
+
 router.get('/admin/details',(req,res)=>{
   if(req.session.masteradmin){
     var query1 = `select count(id) as counter from partner where adminid = '${req.query.id}';`
