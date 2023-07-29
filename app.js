@@ -22,7 +22,7 @@ var bunsiness_development_assistant = require('./routes/Business_Development_CRM
 var bunsiness_development_team = require('./routes/Business_Development_CRM/BDT/index');
 var event = require('./routes/Business_Development_CRM/BDA/event');
 var telecaller_assistant = require('./routes/Business_Development_CRM/TeleCaller_Assistant/index');
-
+var telecaller = require('./routes/Business_Development_CRM/TeleCaller/index');
 
 
 
@@ -65,6 +65,7 @@ app.use('/business-development-manager',bunsiness_development_manager);
 app.use('/business-development-assistant',bunsiness_development_assistant);
 app.use('/business-development-team',bunsiness_development_team);
 app.use('/telecaller-assistant',telecaller_assistant);
+app.use('/telecaller',telecaller);
 
 app.use('/event',event);
 

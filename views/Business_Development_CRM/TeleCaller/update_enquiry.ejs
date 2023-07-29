@@ -1,0 +1,144 @@
+<%- include ('./header1.ejs') %>
+
+
+<!--InsertDiv-->
+
+
+  <div class="container-fluid mt--7">
+      <div id="insertdiv">
+    <div class="row">
+      <div class="col-xl-12 order-xl-1">
+        <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  <div class="col-8">
+                    <h3 class="mb-0">Update Enquiry</h3>
+                  </div>
+                
+                </div>
+              </div>
+              
+          <div class="card-body">
+              <div class="pl-lg-4">
+              
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-username">ID</label>
+                          <input type="text" id="id" name="id" value="<%=result[0].id%>" class="form-control form-control-alternative"
+                            placeholder="Name" readonly>
+                        </div>
+                      </div>
+
+                      <input type="hidden" id="old_status" value="<%=result[0].status%>">
+
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-email">Enquiry ID</label>
+                          <input type="text" id="enquiryid" name="enquiryid" value="<%=result[0].enquiryid%>" class="form-control form-control-alternative"
+                          placeholder="Name" readonly>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Status</label>
+                          <select name="status" id="status" class="form-control">
+                            <option value="active">Active</option>
+                            <option value="pending">Pending</option>
+                            <option value="hold">Hold</option>
+                            <option value="stuck">Stuck</option>
+                            <option value="closed">Closed</option>
+
+                          </select>
+
+                          </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-email">Feedback</label>
+                         <textarea class="form-control" name="feedback" id="feedback" value="<%=result[0].feedback%>"><%=result[0].feedback%></textarea>
+                          </div>
+                        </div>
+                      </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <button type="button" class="btn btn-info save">Save</button>
+                    </div>
+                  </div>
+                </div>
+           </div>
+        </div>
+      </div>
+    </div>
+ </div>
+</div>
+
+<!--End InsertDiv-->
+
+
+
+    
+
+
+<!--Ends EditDiv-->
+
+<!--UpdateImageDiv Start-->
+
+      </div>
+  
+  
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+          <div class="col-xl-6">
+            
+          </div>
+        
+        </div>/
+      </footer>
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="/admin/assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="/admin/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Argon JS -->
+  <script src="/admin/assets/js/argon.js?v=1.0.0"></script>
+  <!-- <script src="/javascripts/add_telecaller.js"></script> -->
+
+
+<script>
+
+let status = $('#old_status').val()
+$('#status').val(status)
+
+    $('.save').click(function(){
+
+        let id = $('#id').val()
+        let status = $('#status').val()
+        let feedback = $('#feedback').val()
+ 
+
+  let insertObj = {
+   id,
+   status,
+   feedback
+   
+  }
+  $.post(`/telecaller/calling/update`,insertObj,data=>{
+   alert('Updated Successfully')
+  })
+ 
+})
+
+</script>
+
+</body>
+
+</html>
